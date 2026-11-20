@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Point Tag Styler</title>
+  <link rel="stylesheet" href="widget.css">
+</head>
+<body>
+  <div id="app" class="pe">
+
+    <header class="pe-head">
+      <div class="pe-id">
+        <h1 class="pe-name" data-pe="name">…</h1>
+        <div class="pe-sub">
+          <span class="pe-type" data-pe="type"></span>
+          <span class="pe-dot">·</span>
+          <code class="pe-ord" data-pe="ord"></code>
+        </div>
+      </div>
+      <div class="pe-head-actions">
+        <span class="pe-live" data-pe="live">●&nbsp;live</span>
+        <button class="pe-btn" data-pe="refresh" type="button">Refresh</button>
+      </div>
+    </header>
+
+    <section class="pe-verdict" data-pe="verdictBox">
+      <span class="pe-badge" data-pe="mode">—</span>
+      <span class="pe-verdict-text" data-pe="verdict">reading…</span>
+    </section>
+
+    <section class="pe-card">
+      <h2>Last run</h2>
+      <div class="pe-tiles pe-tiles-6">
+        <div class="pe-tile"><span data-pe="points">–</span><label>points</label></div>
+        <div class="pe-tile"><span data-pe="matched">–</span><label>matched</label></div>
+        <div class="pe-tile pe-tile-warn"><span data-pe="unmatched">–</span><label>unmatched</label></div>
+        <div class="pe-tile pe-tile-warn"><span data-pe="skipped">–</span><label>skipped</label></div>
+        <div class="pe-tile pe-tile-warn"><span data-pe="dups">–</span><label>duplicates</label></div>
+      </div>
+      <div class="pe-tiles pe-tiles-3 pe-writes" data-pe="writeRow">
+        <div class="pe-tile pe-tile-sm"><span data-pe="created">–</span><label>created</label></div>
+        <div class="pe-tile pe-tile-sm"><span data-pe="retargeted">–</span><label>retargeted</label></div>
+        <div class="pe-tile pe-tile-sm"><span data-pe="unchanged">–</span><label>unchanged</label></div>
+      </div>
+      <p class="pe-error" data-pe="error" hidden></p>
+      <div class="pe-run">
+        <button class="pe-btn pe-btn-primary" data-pe="run" type="button">Run now</button>
+        <span class="pe-run-note" data-pe="runNote"></span>
+      </div>
+    </section>
+
+    <section class="pe-card">
+      <h2>Formatting rules</h2>
+      <p class="pe-hint">What this program was told to do on its last run.</p>
+      <table class="pe-table pe-kv">
+        <tbody>
+          <tr><th>Source root</th><td><code data-pe="sourceRoot"></code></td></tr>
+          <tr><th>Target template</th><td><code data-pe="pathTemplate"></code></td></tr>
+          <tr><th>Supervisor</th><td><code data-pe="supervisorStation"></code></td></tr>
+          <tr><th>Category map</th><td><code data-pe="categoryMap"></code></td></tr>
+          <tr><th>Write mode</th><td><span data-pe="dryRun"></span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="pe-card">
+      <h2>Report <span class="pe-count" data-pe="reportCount"></span></h2>
+      <p class="pe-hint">One line per point it touched: the point, then the export path stamped on it.</p>
+      <pre class="pe-log pe-report" data-pe="report">no report yet</pre>
+    </section>
+
+    <footer class="pe-foot">
+      <span data-pe="pack">pack: unknown</span>
+      <span class="pe-foot-sep">·</span>
+      <span>served from the station file space</span>
+    </footer>
+  </div>
+  <script src="widget.js"></script>
+</body>
+</html>
