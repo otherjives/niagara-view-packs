@@ -1,0 +1,22 @@
+.vp-card {
+  font-family: system-ui, Segoe UI, Roboto, sans-serif;
+  padding: 12px;
+  border: 3px solid #b5651d;
+  border-radius: 8px;
+  background: #fff;
+  color: #222;
+  height: 100%;
+  box-sizing: border-box;
+}
+.vp-card h2 {
+  margin: 0 0 6px;
+  font-size: 1em;
+  font-weight: 600;
+  color: #555;
+}
+.vp-card .ord {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: .75em;
+  color: #777;
+  word-break: break-all;
+}
