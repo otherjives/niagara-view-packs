@@ -21,6 +21,13 @@ Id rules: `^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$`. No `@`, no spaces, no `..`.
 `demo-card-1.1.0`). The station skips a pack whose directory already has `widget.js`
 unless the sync program's `force` slot is true.
 
+**Publish, wait a beat, then sync.** The station pins each sync to the branch's **commit sha**
+(recorded as `commit=` in `_install.txt`) and fetches `raw/<sha>/…`, because
+`raw.githubusercontent.com/<branch>/…` is CDN-cached and will happily serve the previous
+file minutes after a push. GitHub's `/commits/<branch>` is *also* briefly cached — syncing
+within ~10 s of a push can pin the previous commit and 404 the new pack. If a fresh pack
+404s once, run the sync again.
+
 **A pack never contains its own id.** `widget.js` derives its asset base from its own
 `module.uri`, so the same directory works no matter what it is called or where it lands.
 
