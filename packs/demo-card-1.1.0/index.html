@@ -11,6 +11,16 @@
     <h2>demo-card</h2>
     <div class="ord">standalone — append ?ord=slot:/Programs/X</div>
   </div>
+  <!-- Standalone shape: no requirejs here, so widget.js returns immediately and the
+       page stays static. This block only echoes the target ORD from the query string. -->
+  <script>
+    (function () {
+      var m = /[?&]ord=([^&]+)/.exec(window.location.search || '');
+      if (!m) { return; }
+      var el = document.querySelector('.vp-card .ord');
+      if (el) { el.textContent = decodeURIComponent(m[1]); }
+    })();
+  </script>
   <script src="widget.js"></script>
 </body>
 </html>
