@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PointTagStyler — pack preview</title>
+  <style>
+    body { margin:0; background:#171a1f; color:#e6e8eb;
+           font:14px/1.6 system-ui,"Segoe UI",Roboto,sans-serif; }
+    main { max-width: 640px; margin: 60px auto; padding: 0 24px; }
+    h1 { font-size: 20px; margin: 0 0 12px; }
+    p { color:#9aa2ad; }
+    code { font:12.5px ui-monospace,Consolas,monospace; background:#1e222a;
+           border:1px solid #2c3138; border-radius:4px; padding:1px 5px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>PointTagStyler view pack</h1>
+    <p>
+      This pack is designed to be rendered <strong>inside a station</strong> as a
+      component view, where it can read the program's slots live and invoke its
+      actions. The widget is entirely self-contained in <code>widget.js</code> —
+      markup and styles are inlined, so it fetches nothing at runtime.
+    </p>
+    <p>Open it with either:</p>
+    <p>
+      <code>/ord/station:|slot:/PointTagStylerV9|view:?fullScreen=true</code><br>
+      <code>/file/views/point-tag-styler-2.0.0/index.html?ord=slot:/PointTagStylerV9</code>
+    </p>
+    <p>
+      A static preview would show nothing meaningful: every number in the real view
+      comes from the live program's <code>report</code> slot.
+    </p>
+  </main>
+</body>
+</html>
