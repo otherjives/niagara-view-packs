@@ -41,11 +41,15 @@ px is six generated lines; authors never write one.
 `widget.js` resolves its target ORD in this order and never throws:
 
 1. `?ord=…` query parameter (shape B — explicit, always wins)
-2. the bound widget value (`this.value()` → `getNavOrd()`/`getOrd()`) when hosted as a view
-3. the parent frame URL / `document.referrer` (`…/ord/<ord>|view:…`)
-4. `station:|slot:/`
+2. **its own frame URL** — `/ord/<ord>|view:<name>?fullScreen=true` (the reliable channel)
+3. the bound widget value (`this.value()` → `getNavOrd()`/`getOrd()`)
+4. the parent frame URL / `document.referrer`
+5. `station:|slot:/`
 
-Whatever channel wins, it lands in `this._target` as an ORD string.
+**Verified on 4.15.2.38 (2026-11-20):** in a component view, `this.value()` is the
+**station**, not the component — `getNavOrd()` returns `station:`. So the frame URL is the
+primary channel, and the bound value is only accepted when it is not the station root.
+That is why packs must not trust `value()` alone.
 
 ## Authoring rules (learned the hard way)
 
