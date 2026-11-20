@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Program Explainer</title>
+  <link rel="stylesheet" href="widget.css">
+</head>
+<body>
+  <div id="app" class="pe">
+
+    <header class="pe-head">
+      <div class="pe-id">
+        <h1 class="pe-name" data-pe="name">…</h1>
+        <div class="pe-sub">
+          <span class="pe-type" data-pe="type"></span>
+          <span class="pe-dot">·</span>
+          <code class="pe-ord" data-pe="ord" title="Click to copy"></code>
+        </div>
+      </div>
+      <div class="pe-head-actions">
+        <span class="pe-live" data-pe="live" title="Value updates live from the station">●&nbsp;live</span>
+        <button class="pe-btn" data-pe="refresh" type="button">Refresh</button>
+      </div>
+    </header>
+
+    <section class="pe-card pe-about">
+      <h2>What this is</h2>
+      <p data-pe="about">
+        A Niagara program object. It runs Java on the station — its slots below are
+        the inputs it reads and the outputs it publishes.
+      </p>
+    </section>
+
+    <section class="pe-card">
+      <h2>Run state</h2>
+      <p class="pe-status-line"><span class="pe-status" data-pe="status">reading…</span></p>
+      <div class="pe-tiles">
+        <div class="pe-tile"><span data-pe="scanned">–</span><label>scanned</label></div>
+        <div class="pe-tile"><span data-pe="installed">–</span><label>installed</label></div>
+        <div class="pe-tile"><span data-pe="skipped">–</span><label>skipped</label></div>
+        <div class="pe-tile pe-tile-warn"><span data-pe="failed">–</span><label>failed</label></div>
+      </div>
+      <p class="pe-error" data-pe="lastError" hidden></p>
+      <div class="pe-run">
+        <button class="pe-btn pe-btn-primary" data-pe="run" type="button">Run now</button>
+        <span class="pe-run-note" data-pe="runNote"></span>
+      </div>
+    </section>
+
+    <section class="pe-card">
+      <h2>Slots <span class="pe-count" data-pe="slotCount"></span></h2>
+      <p class="pe-hint">Inputs and outputs of this program object, read live from the station.</p>
+      <div class="pe-tablewrap">
+        <table class="pe-table">
+          <thead><tr><th>Slot</th><th>Value</th></tr></thead>
+          <tbody data-pe="slots"><tr><td colspan="2" class="pe-muted">reading…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="pe-card">
+      <h2>Recent activity</h2>
+      <p class="pe-hint">The program's own <code>rows</code> slot — what it did on its last run.</p>
+      <pre class="pe-log" data-pe="rows">no activity recorded</pre>
+    </section>
+
+    <footer class="pe-foot">
+      <span data-pe="pack">pack: unknown</span>
+      <span class="pe-foot-sep">·</span>
+      <span>served from the station file space</span>
+    </footer>
+  </div>
+  <script src="widget.js"></script>
+</body>
+</html>
